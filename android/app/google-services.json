@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978302694288",
+    "firebase_url": "https://petcenter-1088d.firebaseio.com",
+    "project_id": "petcenter-1088d",
+    "storage_bucket": "petcenter-1088d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978302694288:android:c6bc391e520f344e287915",
+        "android_client_info": {
+          "package_name": "luisfelipe.petcenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978302694288-6n2o3p79depblukn4c3itsf6jnq39al9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "luisfelipe.petcenter",
+            "certificate_hash": "27abaa3fc9004729112870c72d7c07e92b748e1c"
+          }
+        },
+        {
+          "client_id": "978302694288-95j9li8fgag2d99b6p3jh0qc13ni6sau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-dWiGsY2Kj9L4_OrcUctEOVLuCmISLCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978302694288-95j9li8fgag2d99b6p3jh0qc13ni6sau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
