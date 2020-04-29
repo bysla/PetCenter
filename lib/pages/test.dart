@@ -9,6 +9,7 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  String txt = "Imagem não selecionada";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,19 +20,23 @@ class _TestState extends State<Test> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
-                onPressed: Choose ,
+                onPressed: ()=>{
+                  setState(()=>{
+                    Choose(),
+                    txt = "Imagem selecionada"
+                  })
+                },
                 child: Text('Choose Image'),
               ),
               SizedBox(width: 10.0),
               RaisedButton(
-                onPressed: Upload,
+                onPressed: 
+                  AsyncFileUpload,
                 child: Text('Upload Image'),
               )
             ],
           ),
-          file == null
-            ? Text('No Image Selected') 
-            : Image.file(file)
+          Text(txt) 
         ],
       ),
     );
