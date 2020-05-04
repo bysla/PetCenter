@@ -98,9 +98,11 @@ class _LoginState extends State<Login> {
                                     left: 25.0,
                                     right: 25.0),
                                 child: TextField(
+                                  obscureText: true,
                                   focusNode: focusPassword,
                                   controller: passwordController,
                                   style: TextStyle(
+                                    
                                       fontFamily: "SignikaSemiBold",
                                       fontSize: 16.0,
                                       color: Colors.black),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../services/api.dart';
 import '../class/class.dart';
 
+import './info.dart';
+
 class Main extends StatefulWidget {
   Main({Key key}) : super(key: key);
 
@@ -67,7 +69,15 @@ class _MainState extends State<Main> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0)),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,MaterialPageRoute(
+                    builder: (context) => Info(city: incidents[i].location,
+                    title: incidents[i].title,
+                    description: incidents[i].description,
+                    url: incidents[i].url,
+                    whats: incidents[i].whatsapp,)),);
+              },
               child: Container(
                   width: width * 0.8,
                   height: height * 0.6,

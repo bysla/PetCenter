@@ -19,12 +19,20 @@ dependencies:
   shared_preferences: ^0.5.7
   bottom_navy_bar: ^5.4.0
   email_validator: ^1.0.4
+  flutter_open_whatsapp: ^0.1.2
+  flutter_launcher_icons: ^0.7.5
+  splashscreen: ^1.2.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+  
 
 flutter:
 

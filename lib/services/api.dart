@@ -87,3 +87,9 @@ SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.setString("error", resJson['error']);
   return 1;
 }
+
+delete(id, userId, veri){
+  http.delete(baseURL+'incidents/'+id.toString(),
+   headers: {"Authorization": userId.toString(), "Verification": veri},
+  );
+}

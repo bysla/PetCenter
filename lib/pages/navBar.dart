@@ -21,6 +21,8 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
   PageController _pageController;
+    final GlobalKey<ScaffoldState> _mainScaffoldKey =
+      new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -47,15 +49,16 @@ if (prefs.getString('id')==null) {
   }
 
   List<Widget> _views = [
+    Perfil(),
     Main(),
-    ListMy(),
-    Perfil()
+    ListMy()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF0EFEF),
+      key: _mainScaffoldKey,
+      backgroundColor: Color(0xFF578ABE),
       body:SizedBox.expand(
         child: PageView(
           controller: _pageController,
@@ -73,16 +76,16 @@ if (prefs.getString('id')==null) {
         },
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
+            title: Text('Perfil'),
+            icon: Icon(Icons.person)
+          ),
+          BottomNavyBarItem(
             title: Text('Todos'),
             icon: Icon(Icons.home)
           ),
           BottomNavyBarItem(
             title: Text('Meus'),
             icon: Icon(Icons.apps)
-          ),
-          BottomNavyBarItem(
-            title: Text('Perfil'),
-            icon: Icon(Icons.person)
           ),
         ],
       ),

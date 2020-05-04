@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../util/upload.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class Test extends StatefulWidget {
   Test({Key key}) : super(key: key);
 
@@ -20,6 +21,9 @@ class _TestState extends State<Test> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController textController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
+
+
+ 
   
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,9 @@ class _TestState extends State<Test> {
                     alignment: Alignment.topCenter,
                     overflow: Overflow.visible,
                     children: <Widget>[
-                      Card(
+                      ListView(
+                        children: <Widget>[
+                          Card(
                         elevation: 2.0,
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
@@ -50,6 +56,34 @@ class _TestState extends State<Test> {
                             children: <Widget>[
                               SizedBox(
                                 height: height * 0.05,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 20.0,
+                                    bottom: 20.0,
+                                    left: 25.0,
+                                    right: 25.0),
+                                child:  Container(
+                                child: FlatButton(
+                                  child: Text(
+                                    "Imagem",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        color: Colors.black,
+                                        fontSize: 18.0,
+                                        fontFamily: "SignikaRegular"),
+                                  ),
+                                  onPressed: () {
+                                   Choose();
+                                   _isimg = true;
+                                  },
+                                ),
+                              )
+                              ),
+                              Container(
+                                width: 250.0,
+                                height: 1.0,
+                                color: Colors.grey,
                               ),
                               
                               Padding(
@@ -145,34 +179,7 @@ Padding(
                                 height: 1.0,
                                 color: Colors.grey,
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 20.0,
-                                    bottom: 20.0,
-                                    left: 25.0,
-                                    right: 25.0),
-                                child:  Container(
-                                child: FlatButton(
-                                  child: Text(
-                                    "Imagem",
-                                    style: TextStyle(
-                                        decoration: TextDecoration.underline,
-                                        color: Colors.black,
-                                        fontSize: 18.0,
-                                        fontFamily: "SignikaRegular"),
-                                  ),
-                                  onPressed: () {
-                                   Choose();
-                                   _isimg = true;
-                                  },
-                                ),
-                              )
-                              ),
-                              Container(
-                                width: 250.0,
-                                height: 1.0,
-                                color: Colors.grey,
-                              ),
+                              
                               Container(
                                 margin:
                                     EdgeInsets.only(top: 60.0, bottom: 26.0),
@@ -213,8 +220,20 @@ Padding(
                                     ),
                                   ),
                                   onPressed: () async {
-                                    if(_isimg){
-                                       AsyncFileUpload(titleController.text, textController.text, cityController.text);
+                                    if(!_isimg){
+                                      displaySnackBar("imagem não selecionada");
+                                    }
+                                    else if(titleController.text.length<4){
+                                      displaySnackBar("titulo muito curto");
+                                    }
+                                    else if(textController.text.length<4){
+                                      displaySnackBar("descrição muito cuta");
+                                    }
+                                    else if(cityController.text.length<2){
+                                      displaySnackBar("informe a cidade");
+                                    }
+                                    else{
+                                      AsyncFileUpload(titleController.text, textController.text, cityController.text);
                                       displaySnackBar("Comcluido");
                                       Navigator.pop(context);
                                     }
@@ -226,6 +245,8 @@ Padding(
                           ),
                         ),
                       ),
+                        ],
+                      )
                     ],
                   ),
         ),
